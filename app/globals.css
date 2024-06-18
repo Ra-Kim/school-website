@@ -72,6 +72,25 @@
     }
     body {
       @apply bg-background text-foreground;
-      overflow-Y:"scroll"
     }
   }
+
+  @layer components {
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        /* scrollbar-width: none; Firefox */
+    }
+    .sun-glow {
+      -webkit-box-shadow: 0px 0px 143px 97px rgba(97, 69, 17, 0.77);
+      -moz-box-shadow: 0px 0px 143px 97px rgba(97, 69, 17, 0.77);
+      box-shadow: 0px 0px 143px 97px rgba(97, 69, 17, 0.77);
+    }
+}
+
+
+ 

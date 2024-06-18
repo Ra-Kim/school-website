@@ -2,21 +2,19 @@ import React from "react";
 import { playfair } from "../../app/layout";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { schoolData } from "@/lib/constants";
 
 const Hero = () => {
   return (
     <div className=" bg-secondary">
-      <div className="w-[86%] border-x border-x-[#9F9F9F] mx-auto pt-10 pb-2">
-        <p
-          className={`text-7xl font-[500] text-center text-textColor mt-5 leading-[76px]`}
-        >
+      <div className="w-[86%] border-x border-x-[#9F9F9F] mx-auto pt-10 pb-2 text-sharon">
+        <p className={`text-7xl font-[500] text-center mt-5 leading-[76px]`}>
           <span className={playfair.className}>
-            Welcome to Sharon Stars International School
+            Welcome to {schoolData.name}
           </span>
         </p>
-        <p className="text-xl  text-center text-textColor mt-6">
-          Wisdom is the key to life
-        </p>
+        <p className="text-xl text-center mt-6">{schoolData.motto}</p>
+        <p className="text-xs text-center">{schoolData.address}</p>
         <div className="flex mt-10 w-fit mx-auto mb-4 gap-4">
           <Button className="w-[190px]">Result Checker</Button>
           <Button variant={`outline`} className="w-[192px]">

@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
+    <div className="no-scrollbar">
       <Header />
       <Hero />
       <Classes />
@@ -17,6 +17,6 @@ export default function Home() {
       <Mission />
       <Events />
       <Contact />
-    </>
+    </div>
   );
 }

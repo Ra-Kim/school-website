@@ -38,11 +38,11 @@ const config = {
         },
         sharon: "#151515",
         muted: {
-          DEFAULT: "hsl(var(--muted))",
+          DEFAULT: "#F8FAFA",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#BD607F",
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
