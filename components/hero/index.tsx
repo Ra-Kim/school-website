@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { schoolData } from "@/lib/constants";
-import { playfair } from "@/app/page";
+import { playfair, schoolData } from "@/lib/constants";
 
 const Hero = () => {
   return (

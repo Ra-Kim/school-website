@@ -1,3 +1,9 @@
+import { Inter , Playfair_Display} from "next/font/google";
+
+
+export const playfair = Playfair_Display({ subsets: ["latin"] });
+export const inter = Inter({ subsets: ["latin"] });
+
 export const schoolData = {
   name: "Sharon Stars International School",
   motto: "Wisdom is the key to life",

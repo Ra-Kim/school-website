@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { schoolData } from "@/lib/constants";
+import { playfair, schoolData } from "@/lib/constants";
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import { playfair } from "@/app/page";
 
 const Mission = () => {
   return (

@@ -1,4 +1,4 @@
-import { inter } from "@/app/page";
+import { inter } from "@/lib/constants";
 import { Copyright } from "lucide-react";
 import React from "react";
 
