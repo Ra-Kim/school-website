@@ -1,8 +1,8 @@
 import React from "react";
-import { playfair } from "../../app/layout";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { schoolData } from "@/lib/constants";
+import { playfair } from "@/app/page";
 
 const Hero = () => {
   return (

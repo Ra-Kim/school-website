@@ -1,7 +1,7 @@
-import { playfair } from "@/app/layout";
 import React from "react";
 import Image from "next/image";
 import ContactForm from "./form";
+import { playfair } from "@/app/page";
 
 const Contact = () => {
   return (

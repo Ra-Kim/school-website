@@ -1,9 +1,9 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { playfair } from "@/app/layout";
 import Image from "next/image";
 import { events } from "@/lib/constants";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { playfair } from "@/app/page";
 
 const Events = () => {
   return (

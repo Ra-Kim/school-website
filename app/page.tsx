@@ -6,7 +6,12 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Mission from "@/components/mission";
+import { Inter , Playfair_Display} from "next/font/google";
 import Image from "next/image";
+
+
+export const playfair = Playfair_Display({ subsets: ["latin"] });
+export const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (

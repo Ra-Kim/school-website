@@ -1,4 +1,4 @@
-import { inter } from "@/app/layout";
+import { inter } from "@/app/page";
 import { Copyright } from "lucide-react";
 import React from "react";
 
