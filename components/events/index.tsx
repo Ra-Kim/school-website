@@ -6,7 +6,7 @@ import { events, playfair } from "@/lib/constants";
 const Events = () => {
   return (
     <div className="bg-secondary py-8">
-      <div className="w-[93%] ml-auto grid grid-cols-[30%_70%] text-sharon">
+      <div className="w-[93%] ml-auto grid lg:grid-cols-[30%_70%] text-sharon">
         <div className="flex flex-col justify-center gap-6">
           <p className={`${playfair.className} text-[40px]  font-medium`}>
             Our upcoming events

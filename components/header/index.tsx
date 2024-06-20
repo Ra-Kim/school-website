@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="lg:h-[110px] bg-muted w-full relative shadow-[0px_2px_20px_0px_#0000000D]">
+    <div className="hidden lg:block lg:h-[110px] bg-muted w-full relative shadow-[0px_2px_20px_0px_#0000000D]">
       <div className="w-[72%] mx-auto flex items-center justify-between h-full text-sharon ">
         <nav className="flex gap-12">
           <Link href={`/`}>Home</Link>

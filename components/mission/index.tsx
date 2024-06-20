@@ -5,13 +5,13 @@ import { ArrowRight } from "lucide-react";
 
 const Mission = () => {
   return (
-    <div className="w-[86%] mx-auto my-8">
+    <div className="lg:w-[86%] w-[93%] mx-auto my-8">
       <p
-        className={`${playfair.className} text-5xl text-sharon font-[500] w-[60%]`}
+        className={`${playfair.className} md:text-5xl text-2xl text-sharon font-[500] md:w-[80%] lg:w-[60%]`}
       >
         Prioritising excellence, self-actualization and high moral stanadrds
       </p>
-      <div className="mt-8 grid grid-cols-2 gap-8">
+      <div className="mt-8 grid  md:grid-cols-2 lg:gap-8 gap-4">
         {schoolData.cards.map((card, idx) => (
           <Card key={idx} title={card.title} details={card.details} />
         ))}
@@ -24,12 +24,12 @@ export default Mission;
 
 const Card = ({ title, details }: (typeof schoolData.cards)[0]) => {
   return (
-    <div className="h-[529px] p-8 pt-24  flex flex-col gap-4 bg-muted rounded-2xl text-justify">
+    <div className="h-[429px] md:h-[529px] p-8 lg:pt-24 lg:flex flex-col grid gap-4 bg-muted rounded-2xl text-justify">
       <Image src={`/assets/svgs/book-rose.svg`} alt="" height={32} width={32} />
       <p className="text-2xl font-medium mt-4">{title}</p>
-      <p className="w-[85%] text-lg">{details}</p>
+      <p className="w-[85%] lg:text-lg">{details}</p>
 
-      <div className="mt-16 flex text-primary font-medium text-xl items-center gap-2">
+      <div className="mt-auto flex text-primary font-medium  lg:text-xl items-center gap-2">
         <p>Read More</p>
         <ArrowRight />
       </div>
