@@ -47,19 +47,19 @@ const ContactForm = () => {
   return (
     <Form {...form}>
       <form
-        className="flex flex-col gap-8 w-[70%] pb-16"
+        className="flex flex-col gap-8 lg:w-[70%] pb-16"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <FormField
           control={form.control}
           name="fullName"
           render={({ field }) => (
-            <FormItem className="border-b border-b-sharon ">
+            <FormItem className="lg:border-b lg:border-b-sharon ">
               <FormLabel className="text-base">Full Name:</FormLabel>
               <FormControl>
                 <Input
                   placeholder=""
-                  className="h-[90%] pt-0 pl-0 focus-visible:border-none focus-visible:outline-none border-none focus-visible:ring-0 bg-none focus-visible:ring-offset-0"
+                  className="h-[90%] pt-2 lg:pt-0 pl-2 lg:pl-0 focus-visible:border-none focus-visible:outline-none border-none focus-visible:ring-0 bg-none focus-visible:ring-offset-0"
                   {...field}
                 />
               </FormControl>
@@ -71,12 +71,12 @@ const ContactForm = () => {
           control={form.control}
           name="phoneNumber"
           render={({ field }) => (
-            <FormItem className="border-b border-b-sharon">
+            <FormItem className="lg:border-b lg:border-b-sharon">
               <FormLabel className="text-base">Phone Number:</FormLabel>
               <FormControl>
                 <Input
                   placeholder=""
-                  className="h-[90%] pt-0 pl-0 focus-visible:border-none focus-visible:outline-none border-none focus-visible:ring-0 bg-none focus-visible:ring-offset-0"
+                  className="h-[90%] pt-2 lg:pt-0 pl-2 lg:pl-0 focus-visible:border-none focus-visible:outline-none border-none focus-visible:ring-0 bg-none focus-visible:ring-offset-0"
                   {...field}
                 />
               </FormControl>
@@ -88,12 +88,12 @@ const ContactForm = () => {
           control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem className="border-b border-b-sharon">
+            <FormItem className="lg:border-b lg:border-b-sharon">
               <FormLabel className="text-base">Message:</FormLabel>
               <FormControl>
                 <Input
                   placeholder=""
-                  className="h-[90%] pt-0 pl-0 focus-visible:border-none focus-visible:outline-none border-none focus-visible:ring-0 bg-none focus-visible:ring-offset-0"
+                  className="h-[90%] pt-2 lg:pt-0 pl-2 lg:pl-0 focus-visible:border-none focus-visible:outline-none border-none focus-visible:ring-0 bg-none focus-visible:ring-offset-0"
                   {...field}
                 />
               </FormControl>

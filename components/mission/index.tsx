@@ -24,10 +24,10 @@ export default Mission;
 
 const Card = ({ title, details }: (typeof schoolData.cards)[0]) => {
   return (
-    <div className="h-[429px] md:h-[529px] p-8 lg:pt-24 lg:flex flex-col grid gap-4 bg-muted rounded-2xl text-justify">
+    <div className="h-fit p-8 lg:pt-24 lg:flex flex-col grid gap-4 bg-muted rounded-2xl text-justify">
       <Image src={`/assets/svgs/book-rose.svg`} alt="" height={32} width={32} />
       <p className="text-2xl font-medium mt-4">{title}</p>
-      <p className="w-[85%] lg:text-lg">{details}</p>
+      <p className="w-[85%] lg:text-lg">{`At ${schoolData.shortName}, ${details}`}</p>
 
       <div className="mt-auto flex text-primary font-medium  lg:text-xl items-center gap-2">
         <p>Read More</p>

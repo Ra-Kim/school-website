@@ -19,8 +19,8 @@ const About = () => {
           <p className={`${playfair.className} text-5xl font-semibold mb-4`}>
             About Us
           </p>
-          <p className=" text-lg text-justify">
-            At Sharon Stars, {schoolData.about}
+          <p className="text-base md:text-lg text-justify">
+            At {schoolData.shortName}, {schoolData.about}
           </p>
           <div className="mt-8">
             <Button className="w-[200px] h-[48px]">Learn More</Button>

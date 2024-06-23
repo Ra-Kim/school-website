@@ -6,6 +6,7 @@ export const inter = Inter({ subsets: ["latin"] });
 
 export const schoolData = {
   name: "Sharon Stars International School",
+  shortName: "Sharon Stars",
   motto: "Wisdom is the key to life",
   address:
     "No.7 Deeper Life Close off Sars Link Road Rumuagholu , Port Harcourt",
@@ -32,22 +33,22 @@ export const schoolData = {
     {
       title: "Mission",
       details:
-        "At Sharon Stars, we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
+        "we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
     },
     {
       title: "Vision",
       details:
-        "At Sharon Stars, we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
+        "we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
     },
     {
       title: "Curriculum",
       details:
-        "At Sharon Stars, we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
+        "we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
     },
     {
       title: "Extra-curricular Activities",
       details:
-        "At Sharon Stars, we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
+        "we offer a comprehensive and well-rounded education that goes beyond the classroom. Our curriculum is designed to stimulate intellectual curiosity, encourage creativity, and develop essential skills for the 21st century. Through a blend of academic",
     },
   ],
 };
