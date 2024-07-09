@@ -30,9 +30,9 @@ const Contact = () => {
     }),
   };
   return (
-    <div className="py-12">
+    <div className="py-12" id="contact">
       <div
-        className="w-[86%] mx-auto shadow-[1px_6px_20px_0px_#0000001A] grid md:grid-cols-[80%_20%] text-sharon bg-cover bg-black bg-opacity-50"
+        className="w-[86%] mx-auto shadow-[1px_6px_20px_0px_#0000001A] grid md:grid-cols-[80%_20%] text-sharon bg-cover bg-black bg-opacity-50 lg:bg-white"
         style={containerStyle}
       >
         <div className="p-8">

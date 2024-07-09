@@ -1,15 +1,54 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 const Header = () => {
+  const [page, setPage] = useState<number>(0);
+
+  useEffect(() => {
+    const about = document.getElementById("about-us");
+    const events = document.getElementById("events");
+    const mission = document.getElementById("mission");
+    const contact = document.getElementById("contact");
+
+    const handleClick = () => {
+      if (page === 1) {
+        about?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+      if (page === 2) {
+        events?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+      if (page === 3) {
+        mission?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+      if (page === 4) {
+        contact?.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      }
+    };
+
+    handleClick();
+  }, [page]);
+
   return (
     <div className="hidden lg:block lg:h-[110px] bg-muted w-full relative shadow-[0px_2px_20px_0px_#0000000D]">
       <div className="w-[72%] mx-auto flex items-center justify-between h-full text-sharon ">
-        <nav className="flex gap-12">
-          <Link href={`/`}>Home</Link>
-          <Link href={`#about-us`}>About Us</Link>
-          <Link href={`#events`}>Events</Link>
+        <nav className="flex gap-12 [&_div]:cursor-pointer">
+          <div>Home</div>
+          <div onClick={() => setPage(1)}>About Us</div>
+          <div onClick={() => setPage(2)}>Events</div>
         </nav>
         <Image
           src={`/assets/logo.png`}
@@ -18,10 +57,10 @@ const Header = () => {
           alt="logo"
           className="ml-4"
         />
-        <nav className="flex gap-10">
-          <Link href={`#mission`}>Mission</Link>
-          <Link href={`/`}>Result Checker</Link>
-          <Link href={`#contact`}>Contact Us</Link>
+        <nav className="flex gap-10 [&_div]:cursor-pointer">
+          <div onClick={() => setPage(3)}>Mission</div>
+          <div>Result Checker</div>
+          <div onClick={() => setPage(4)}>Contact Us</div>
         </nav>
       </div>
     </div>

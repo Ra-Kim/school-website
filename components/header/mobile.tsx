@@ -1,14 +1,52 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 const MobileHeader = () => {
   const [mobileNav, toggleMobileNav] = useCycle(false, true);
+  const [page, setPage] = useState<number>(0);
+
+  useEffect(() => {
+    const about = document.getElementById("about-us");
+    const events = document.getElementById("events");
+    const mission = document.getElementById("mission");
+    const contact = document.getElementById("contact");
+
+    const handleClick = () => {
+      if (page === 1) {
+        about?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+      if (page === 2) {
+        events?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+      if (page === 3) {
+        mission?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+      if (page === 4) {
+        contact?.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      }
+    };
+
+    handleClick();
+    toggleMobileNav();
+  }, [page, toggleMobileNav]);
 
   return (
-    <div className="lg:hidden bg-muted w-full relative shadow-[0px_2px_20px_0px_#0000000D] h-[100px] flex justify-between items-center pr-4">
+    <div className="lg:hidden bg-muted w-full shadow-[0px_2px_20px_0px_#0000000D] h-[100px] flex justify-between items-center pr-4">
       <Link href={`/`}>
         <Image
           src={`/assets/logo.png`}
@@ -22,9 +60,7 @@ const MobileHeader = () => {
         animate={mobileNav ? "open" : "closed"}
         onClick={() => toggleMobileNav()}
         className={`flex flex-col lg:hidden 
-         space-y-[5px] p-2 ${
-           "relative"
-         } z-40 rounded-[4px] `}
+         space-y-[5px] p-2 ${"absolute"} z-40 rounded-[4px] right-2`}
       >
         <motion.span
           variants={{
@@ -59,7 +95,7 @@ const MobileHeader = () => {
             <motion.div
               variants={{
                 open: {
-                  x: "75%",
+                  x: "35%",
                   transition: {
                     type: "spring",
                     bounce: 0,
@@ -78,10 +114,17 @@ const MobileHeader = () => {
               animate="open"
               initial="closed"
               exit="closed"
-              className={`fixed z-30 inset-0 w-[60%] text-center bg-[#fafafa] overflow-scroll text-[18px] no-scrollbar`}
+              className={`fixed z-30 inset-0 w-[90%] text-center bg-[#fafafa] overflow-scroll text-[18px] no-scrollbar`}
             >
-              <motion.div className=" mt-16">
-                <div className="flex flex-col items-center m-auto gap-6"></div>{" "}
+              <motion.div className=" mt-20">
+                <div className="flex flex-col items-start m-auto gap-6 pl-4 text-sm">
+                  <div>Home</div>
+                  <div onClick={() => setPage(1)}>About Us</div>
+                  <div onClick={() => setPage(2)}>Events</div>
+                  <div onClick={() => setPage(3)}>Mission</div>
+                  <div>Result Checker</div>
+                  <div onClick={() => setPage(4)}>Contact Us</div>
+                </div>
               </motion.div>
             </motion.div>
           </MotionConfig>

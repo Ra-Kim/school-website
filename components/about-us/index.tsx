@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 const About = () => {
   return (
-    <div className="bg-muted mt-16">
+    <div className="bg-muted mt-16" id="about-us">
       <div className="w-[93%] lg:grid lg:grid-cols-2 flex flex-col sm:h-fit mx-auto lg:mx-0">
         <div className="relative min-h-[350px]">
           <Image

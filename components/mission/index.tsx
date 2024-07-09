@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const Mission = () => {
   return (
-    <div className="lg:w-[86%] w-[93%] mx-auto my-8">
+    <div className="lg:w-[86%] w-[93%] mx-auto my-8" id="mission">
       <p
         className={`${playfair.className} md:text-5xl text-2xl text-sharon font-[500] md:w-[80%] lg:w-[60%]`}
       >
