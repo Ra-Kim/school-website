@@ -12,7 +12,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="no-scrollbar relative">
+    <div className="no-scrollbar relative scroll-smooth">
       <Header />
       <MobileHeader />
       <Hero />

@@ -1,13 +1,18 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { playfair, schoolData } from "@/lib/constants";
+import Link from "next/link";
 
 const Hero = () => {
+
   return (
     <div className=" bg-secondary">
       <div className="lg:w-[86%] w-[93%] border-x border-x-[#9F9F9F] mx-auto pt-10 pb-2 text-sharon">
-        <p className={`lg:text-7xl text-5xl md:text-6xl font-[500] text-center mt-5  md:leading-[76px]`}>
+        <p
+          className={`lg:text-7xl text-5xl md:text-6xl font-[500] text-center mt-5  md:leading-[76px]`}
+        >
           <span className={playfair.className}>
             Welcome to {schoolData.name}
           </span>
@@ -16,9 +21,14 @@ const Hero = () => {
         <p className="text-xs text-center">{schoolData.address}</p>
         <div className="flex flex-col md:flex-row mt-10 w-fit mx-auto mb-4 gap-4">
           <Button className="w-[190px]">Result Checker</Button>
-          <Button variant={`outline`} className="w-[192px]">
+          <Link href={`/#about-us`}>
+          <Button
+            variant={`outline`}
+            className="w-[192px]"
+          >
             Learn more about us
           </Button>
+          </Link>
         </div>
         <div className="lg:h-[569px] h-[479px] w-full relative hidden md:block">
           <Image
