@@ -15,6 +15,7 @@ const MobileHeader = () => {
     const contact = document.getElementById("contact");
 
     const handleClick = () => {
+      if (!page) return;
       if (page === 1) {
         about?.scrollIntoView({
           behavior: "smooth",
