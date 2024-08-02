@@ -15,7 +15,7 @@ const Events = () => {
             Our curriculum is designed to stimulate intellectual curiosity,
             encourage creativity, and develop
           </p>
-          <Button className="w-[227px] h-[48px] rounded-[4px]">
+          <Button className="w-[227px] h-[48px] rounded-[4px]" disabled>
             View all events
           </Button>
         </div>
@@ -62,7 +62,7 @@ const EventCard = ({ name, date, time, image }: (typeof events)[0]) => {
           <p className="font-light text-sm">{date}</p>
           <p className="font-light text-sm">{time}</p>
         </div>
-        <div className="flex items-end font-medium text-sm">
+        <div className="flex items-end font-medium text-sm opacity-50">
           <p>View event details</p>
         </div>
       </div>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { resultChecker } from "@/lib/constants";
 
 const MobileHeader = () => {
   const [mobileNav, toggleMobileNav] = useCycle(false, true);
@@ -123,7 +124,7 @@ const MobileHeader = () => {
                   <div onClick={() => setPage(1)}>About Us</div>
                   <div onClick={() => setPage(2)}>Events</div>
                   <div onClick={() => setPage(3)}>Mission</div>
-                  <div>Result Checker</div>
+                  <Link href={resultChecker} target="blank">Result Checker</Link>
                   <div onClick={() => setPage(4)}>Contact Us</div>
                 </div>
               </motion.div>

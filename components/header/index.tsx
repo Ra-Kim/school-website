@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { resultChecker } from "@/lib/constants";
 
 const Header = () => {
   const [page, setPage] = useState<number>(0);
@@ -59,7 +60,7 @@ const Header = () => {
         />
         <nav className="flex gap-10 [&_div]:cursor-pointer">
           <div onClick={() => setPage(3)}>Mission</div>
-          <div>Result Checker</div>
+          <Link href={resultChecker} target="blank">Result Checker</Link>
           <div onClick={() => setPage(4)}>Contact Us</div>
         </nav>
       </div>

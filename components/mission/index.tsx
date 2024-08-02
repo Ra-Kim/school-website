@@ -29,7 +29,7 @@ const Card = ({ title, details }: (typeof schoolData.cards)[0]) => {
       <p className="text-2xl font-medium mt-4">{title}</p>
       <p className="w-[85%] lg:text-lg">{`At ${schoolData.shortName}, ${details}`}</p>
 
-      <div className="mt-auto flex text-primary font-medium  lg:text-xl items-center gap-2">
+      <div className="mt-auto flex text-primary font-medium  lg:text-xl items-center gap-2 opacity-50">
         <p>Read More</p>
         <ArrowRight />
       </div>

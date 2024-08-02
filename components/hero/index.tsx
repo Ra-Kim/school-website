@@ -1,12 +1,30 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { playfair, schoolData } from "@/lib/constants";
+import { playfair, resultChecker, schoolData } from "@/lib/constants";
 import Link from "next/link";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const Hero = () => {
-
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
   return (
     <div className=" bg-secondary">
       <div className="lg:w-[86%] w-[93%] border-x border-x-[#9F9F9F] mx-auto pt-10 pb-2 text-sharon">
@@ -20,22 +38,53 @@ const Hero = () => {
         <p className="text-xl text-center mt-6">{schoolData.motto}</p>
         <p className="text-xs text-center">{schoolData.address}</p>
         <div className="flex flex-col md:flex-row mt-10 w-fit mx-auto mb-4 gap-4">
-          <Button className="w-[190px]">Result Checker</Button>
-          <Link href={`/#about-us`}>
-          <Button
-            variant={`outline`}
-            className="w-[192px]"
-          >
-            Learn more about us
+          <Button className="w-[190px]">
+            <Link href={resultChecker} target="blank">
+              Result Checker
+            </Link>
           </Button>
+          <Link href={`/#about-us`}>
+            <Button variant={`outline`} className="w-[192px]">
+              Learn more about us
+            </Button>
           </Link>
         </div>
-        <div className="lg:h-[569px] h-[479px] w-full relative hidden md:block">
-          <Image
-            src={`https://s3-alpha-sig.figma.com/img/2dbd/00e0/12b790fbae97e5b70f07a3605082fe89?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZfF79~2Ni8bOAnt1u4oUto~3KNG-bm0LYXadPmYseGyE4hYLvoUTGW1Bbg3UFxRPNq4-apfNm4hI47neAU4AAkdvpY53PRcdWm5bmhqFs7A9Aj8WBd1F5sbZbqgSEaSWJ0K5xcUXFHGapJdGmt3jxB0cNR84mJAWcNxRddmbZ7mHaekkX~GvOSKoT5TIOPLDuyMVWQRxVgv8VmfSNi4I~5Z7raZiE~Q0N9QQ0p7BWkuCysniEnpdxvuWQ07RmpDKKicMANEhnQQ1qe6M3pTgFT2rK0RrMcdTOu886uzFARq-6IxYdT-yabZp49hyvCMPvQbvmmD-rC0WBh3dYQTr0w__`}
+        <div className="lg:h-[569px] h-[479px] w-full relative hidden md:block z-10">
+          <Carousel
+            swipeable={false}
+            draggable={false}
+            showDots={true}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={5000}
+            keyBoardControl={true}
+            customTransition="opacity 2000 ease-in"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            // deviceType={this.props.deviceType}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+            className="lg:min-h-[569px] lg:*:min-h-[569px]"
+          >
+            <div className="px-28 py-8 w-full h-[inherit]">
+              <div className="h-[500px] max-w-full relative">
+                <Image src={`/assets/jpgs/carousel-ssis.jpg`} alt="" fill />
+              </div>
+            </div>
+            <div className="px-28 py-8 w-full h-[inherit]">
+              <div className="h-[500px] max-w-full relative">
+                <Image src={`/assets/jpgs/about-ssis.jpg`} alt="" fill />
+              </div>
+            </div>
+          </Carousel>
+          {/* <Image
+          src={`/assets/jpgs/carousel-ssis.jpg`}
             alt="carousel"
             fill
-          />
+          /> */}
         </div>
       </div>
     </div>
