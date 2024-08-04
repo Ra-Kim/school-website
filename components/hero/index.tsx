@@ -71,12 +71,12 @@ const Hero = () => {
           >
             <div className="px-28 py-8 w-full h-[inherit]">
               <div className="h-[500px] max-w-full relative">
-                <Image src={`/assets/jpgs/carousel-ssis.jpg`} alt="" fill />
+                <Image src={`/assets/jpgs/carousel-ssis.jpg`} alt="" fill priority/>
               </div>
             </div>
             <div className="px-28 py-8 w-full h-[inherit]">
               <div className="h-[500px] max-w-full relative">
-                <Image src={`/assets/jpgs/about-ssis.jpg`} alt="" fill />
+                <Image src={`/assets/jpgs/about-ssis.jpg`} alt="" fill priority/>
               </div>
             </div>
           </Carousel>
