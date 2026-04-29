@@ -8,15 +8,12 @@ import type { Config } from "tailwindcss";
  *   rose     — accent only (eyebrows, italics, underlines, small fills)
  *   cream    — page background
  *   ink      — body text (slightly softer than plum for long-form reading)
+ *
+ * Semantic roles wrap the brand colors so the platform (Phase 3) can
+ * reuse the same components with a different brand by swapping these.
  */
 const config: Config = {
-  // No src/ folder — content globs point at root-level app/, components/, etc.
-  content: [
-    "./app/**/*.{ts,tsx,mdx}",
-    "./components/**/*.{ts,tsx,mdx}",
-    "./content/**/*.{ts,tsx,mdx}",
-    "./lib/**/*.{ts,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{ts,tsx,mdx}"],
   theme: {
     container: {
       center: true,
@@ -31,6 +28,7 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // raw brand
         plum: {
           DEFAULT: "#2A1B3D",
           deep: "#1F1430",
@@ -51,6 +49,8 @@ const config: Config = {
           subtle: "rgba(42, 27, 61, 0.55)",
           line: "rgba(42, 27, 61, 0.08)",
         },
+
+        // semantic roles — components should prefer these
         background: "#FDFBF7",
         surface: "#FFFFFF",
         foreground: "#2A1B3D",
@@ -59,10 +59,12 @@ const config: Config = {
         border: "rgba(42, 27, 61, 0.08)",
       },
       fontFamily: {
+        // wired to the next/font instances in src/lib/fonts.ts
         serif: ["var(--font-serif)", "ui-serif", "Georgia"],
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
       },
       fontSize: {
+        // editorial type scale — generous, intentional
         "display-xl": ["clamp(2.75rem, 5vw + 1rem, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.01em" }],
         "display-lg": ["clamp(2.25rem, 3.5vw + 1rem, 3.5rem)", { lineHeight: "1.1", letterSpacing: "-0.005em" }],
         "display-md": ["clamp(1.75rem, 2vw + 1rem, 2.5rem)", { lineHeight: "1.15" }],
