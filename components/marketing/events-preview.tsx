@@ -18,7 +18,7 @@ export async function EventsPreview() {
       <div className="container-prose">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-xl">
-            <p className="eyebrow mb-5 text-rose-soft">What's on</p>
+            <p className="eyebrow mb-5 text-rose-soft">What&apos;s on</p>
             <h2 className="font-serif text-display-lg">Upcoming at the school</h2>
           </div>
           <Link
