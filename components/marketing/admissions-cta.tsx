@@ -17,7 +17,7 @@ export function AdmissionsCTA() {
             Considering us for your child?
           </h2>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
-            We'd love to meet you. Begin with an enquiry, book a school
+            We&apos;d love to meet you. Begin with an enquiry, book a school
             visit, or jump straight to the application.
           </p>
         </div>

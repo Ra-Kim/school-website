@@ -62,7 +62,7 @@ export default function ResultsPage() {
                 Open the parent portal.
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
-                You'll be taken to our secure portal, where you can sign in with
+                You&apos;ll be taken to our secure portal, where you can sign in with
                 the credentials the school provided.
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function ResultsPage() {
         <div className="mb-12 max-w-2xl">
           <p className="eyebrow mb-5">How it works</p>
           <h2 className="font-serif text-display-md text-foreground">
-            Three steps to your child's results.
+            Three steps to your child&apos;s results.
           </h2>
         </div>
 
@@ -133,16 +133,16 @@ export default function ResultsPage() {
                 >
                   {site.contact.email}
                 </a>{" "}
-                during school hours and we'll reset it for you.
+                during school hours and we&apos;ll reset it for you.
               </Faq>
               <Faq question="My child's admission number isn't working.">
                 Double-check the number against the receipt issued at the start
-                of the term. If it still doesn't work, get in touch and we'll
+                of the term. If it still doesn&apos;t work, get in touch and we&apos;ll
                 check the records.
               </Faq>
               <Faq question="I can't see this term's report yet.">
                 Reports are released on the dates announced at the start of
-                each term. If the date has passed and you still can't see it,
+                each term. If the date has passed and you still can&apos;t see it,
                 please contact the school.
               </Faq>
             </div>
@@ -154,8 +154,8 @@ export default function ResultsPage() {
           checker is live. */}
       <section className="container-prose py-16">
         <p className="mx-auto max-w-2xl text-center text-sm text-ink-subtle">
-          The result checker is currently powered by our partner. We're
-          building our own portal in-house — when it's ready, this page will
+          The result checker is currently powered by our partner. We&apos;re
+          building our own portal in-house — when it&apos;s ready, this page will
           become the new home for it. No bookmarks to update.
         </p>
       </section>

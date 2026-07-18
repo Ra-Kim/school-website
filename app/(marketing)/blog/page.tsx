@@ -23,7 +23,7 @@ export default async function BlogPage() {
       <section className="container-prose pb-24 lg:pb-32">
         {posts.length === 0 ? (
           <p className="text-base text-muted">
-            We're just getting started. The first essays will appear here soon.
+            We&apos;re just getting started. The first essays will appear here soon.
           </p>
         ) : (
           <ul className="divide-y divide-ink-line border-y border-ink-line">
