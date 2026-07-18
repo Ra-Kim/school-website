@@ -8,6 +8,13 @@ const nextConfig = {
         port: "",
         pathname: "**",
       },
+      {
+        // Schola API event/post images (Supabase storage bucket).
+        protocol: "https",
+        hostname: "wippqmptpqvjavedmrbq.supabase.co",
+        port: "",
+        pathname: "**",
+      },
     ],
   },
 };

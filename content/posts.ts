@@ -1,8 +1,15 @@
 /**
- * Blog posts. Same pattern as events — file-driven now, CMS-driven later.
- * Bodies are markdown strings; render with react-markdown or MDX when you
- * wire up the [slug] route fully.
+ * Blog posts, sourced live from the Schola API (see lib/schola.ts). Bodies
+ * are markdown strings; render with react-markdown or MDX when you wire up
+ * the [slug] route fully.
  */
+
+import {
+  fetchAllScholaPosts,
+  fetchScholaPost,
+  fetchScholaPostsPage,
+  type ScholaPost,
+} from "@/lib/schola";
 
 export type Post = {
   slug: string;
@@ -15,32 +22,30 @@ export type Post = {
   tags: string[];
 };
 
-const posts: Post[] = [
-  {
-    slug: "welcome-to-our-journal",
-    title: "Welcome to our journal",
-    excerpt:
-      "A note on what we'll be writing about here, and why we think it matters.",
-    body: `This is the school's journal — a space for staff, students, and the head of school to write about teaching, parenting, and the work of growing up well.
-
-We'll publish slowly and carefully. We'd rather have one essay a month worth reading than five posts a week worth scrolling past.`,
-    publishedAt: "2026-04-01T09:00:00+01:00",
-    author: "The Head of School",
-    tags: ["welcome"],
-  },
-];
+function mapPost(post: ScholaPost): Post {
+  return {
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    body: post.body,
+    publishedAt: post.published_at,
+    author: post.author?.name ?? "The school",
+    cover: post.cover_url ?? undefined,
+    tags: post.tags,
+  };
+}
 
 export async function getPosts(): Promise<Post[]> {
-  return [...posts].sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-  );
+  const posts = await fetchAllScholaPosts();
+  return posts.map(mapPost);
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  return posts.find((p) => p.slug === slug) ?? null;
+  const post = await fetchScholaPost(slug);
+  return post ? mapPost(post) : null;
 }
 
 export async function getLatestPosts(limit = 3): Promise<Post[]> {
-  return (await getPosts()).slice(0, limit);
+  const page = await fetchScholaPostsPage({ limit });
+  return page.data.map(mapPost);
 }
