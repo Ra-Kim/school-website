@@ -11,7 +11,7 @@ export const site = {
   shortName: "SSIS",
   tagline: "Where curious minds become remarkable ones.",
   established: 2011,
-  location: "Port Harcourt, Nigeria",
+  location: "Rumuagholu, Port Harcourt",
 
   // shown on hero + admissions
   intro:
@@ -67,7 +67,24 @@ export const site = {
     email: "info@ssis.com.ng",
     phone: "+234 9064605022",
     address: "No. 8 Deeper Life Close, off Sars Link Road, Rumuagholu, Port Harcourt",
+    addressLocality: "Port Harcourt",
+    addressRegion: "Rivers State",
+    // From the Google Maps embed on /contact — keep in sync if the pin moves.
+    geo: { latitude: 4.882347630629881, longitude: 6.981624647973694 },
+    googleMapsUrl: "https://maps.app.goo.gl/H3Nkc5KCDjPkPqjz9",
   },
+
+  // Neighbourhoods and landmarks a local parent would actually search —
+  // used in JSON-LD areaServed and in on-page copy. Keep this truthful:
+  // only list places the school genuinely serves or sits near.
+  serviceAreas: [
+    "Rumuagholu",
+    "Sars Road",
+    "Rumuokoro",
+    "Nkpolu",
+    "Sars Link Road",
+    "Port Harcourt",
+  ],
 
   social: {
     instagram: "",

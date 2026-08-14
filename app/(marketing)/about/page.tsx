@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Founded in ${site.established}, ${site.name} is a school built around the student, not the system.`,
+  description: `Founded in ${site.established}, ${site.name} is a school built around the student, not the system — located in ${site.location}, off Sars Link Road.`,
 };
 
 export default function AboutPage() {

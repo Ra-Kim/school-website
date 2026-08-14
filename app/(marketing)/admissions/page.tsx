@@ -5,7 +5,7 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Admissions",
-  description: `Apply, book a school visit, or get in touch with the ${site.name} admissions team.`,
+  description: `Apply, book a school visit, or get in touch with the ${site.name} admissions team in ${site.location}.`,
 };
 
 const steps = [
