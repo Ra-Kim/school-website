@@ -75,7 +75,19 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {site.external.poweredBy && (
+              // Followed link on purpose: it's the portal provider's credit.
+              // No noreferrer, so Schola can see the visit came from here.
+              <a
+                href={site.external.poweredBy.href}
+                target="_blank"
+                rel="noopener"
+                className="transition-colors hover:text-foreground"
+              >
+                School portal by {site.external.poweredBy.label}
+              </a>
+            )}
             <Link
               href="/privacy"
               className="transition-colors hover:text-foreground"

@@ -95,6 +95,11 @@ export const site = {
   external: {
     resultChecker: "https://portal.ssis.com.ng/result-checker",
     parentPortal: "https://portal.ssis.com.ng/login",
+    // Footer credit for the portal. Set to null for a school not on Schola.
+    poweredBy: { label: "Schola", href: "https://schola.ng" } as {
+      label: string;
+      href: string;
+    } | null,
   },
 } as const;
 
