@@ -65,7 +65,7 @@ export const site = {
 
   contact: {
     email: "info@ssis.com.ng",
-    phone: "+234 9064605022",
+    phone: "+234 8035418644",
     address: "No. 8 Deeper Life Close, off Sars Link Road, Rumuagholu, Port Harcourt",
     addressLocality: "Port Harcourt",
     addressRegion: "Rivers State",
