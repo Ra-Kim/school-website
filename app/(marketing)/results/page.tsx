@@ -6,19 +6,14 @@ import { site } from "@/content/site";
 /**
  * /results
  *
- * The school owns this URL. Right now it explains the result checker and
- * sends parents to the Cloudnotte portal. In phase 3, when the school's
- * own checker ships, this page becomes the actual checker — the URL
- * stays the same, parents' bookmarks keep working, the migration is
- * invisible to them.
+ * The school owns this URL. It explains the result checker and sends
+ * parents to the school's portal on Schola (sharonstars.schola.ng).
  *
- * Why a dedicated page instead of just linking to Cloudnotte directly:
- *   - Trust signal. Some parents see an external Cloudnotte URL and
- *     think they've been phished. A page on yourschool.edu.ng explaining
- *     "this is where to check results" is reassuring.
- *   - SEO. "yourschool result checker" should rank for /results, not
- *     for cloudnotte.com.
- *   - Migration safety. When phase 3 ships, no broken links anywhere.
+ * Why a dedicated page instead of just linking to the portal directly:
+ *   - Trust signal. A page on ssis.com.ng explaining "this is where to
+ *     check results" is reassuring before parents land on another domain.
+ *   - SEO. "Sharon Stars result checker" should rank for /results.
+ *   - Migration safety. If the portal moves, only content/site.ts changes.
  */
 
 export const metadata: Metadata = {
@@ -30,17 +25,17 @@ const steps = [
   {
     n: "01",
     title: "Have your details ready",
-    body: "You'll need your child's admission number and the password the school provided at the start of the term.",
+    body: "You'll need your child's Student ID. The school office can give it to you if you don't have it.",
   },
   {
     n: "02",
-    title: "Open the portal",
-    body: "Click the button below. The portal opens in a new tab — your place on this page is preserved.",
+    title: "Open the result checker",
+    body: "Click the button below. It opens in a new tab — your place on this page is preserved. Enter the Student ID, then pick the session and term.",
   },
   {
     n: "03",
     title: "View, save, or print",
-    body: "Once signed in, you can view current and past term reports, save them as PDF, or print a copy for your records.",
+    body: "The report card opens on screen. You can save it as a PDF or print a copy for your records.",
   },
 ];
 
@@ -59,11 +54,23 @@ export default function ResultsPage() {
           <div className="grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
             <div>
               <h2 className="font-serif text-display-md text-foreground">
-                Open the parent portal.
+                Check your child&apos;s result.
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
-                You&apos;ll be taken to our secure portal, where you can sign in with
-                the credentials the school provided.
+                You&apos;ll be taken to our school portal. All you need is your
+                child&apos;s Student ID.
+              </p>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
+                Have a parent account? You can also{" "}
+                <a
+                  href={site.external.parentPortal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-b border-accent pb-0.5 text-foreground transition-colors hover:text-accent"
+                >
+                  sign in to the parent portal
+                </a>{" "}
+                for fees, attendance and announcements.
               </p>
             </div>
             <div className="flex flex-col items-start gap-3 md:items-end">
@@ -114,11 +121,11 @@ export default function ResultsPage() {
             <div>
               <p className="eyebrow mb-5">Need help?</p>
               <h2 className="font-serif text-display-md text-foreground">
-                Trouble signing in?
+                Trouble checking a result?
               </h2>
             </div>
             <div className="space-y-6 text-base leading-relaxed text-muted">
-              <Faq question="I've forgotten my password.">
+              <Faq question="I don't know my child's Student ID, or I've forgotten my portal password.">
                 Contact the school office on{" "}
                 <a
                   href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
@@ -133,12 +140,11 @@ export default function ResultsPage() {
                 >
                   {site.contact.email}
                 </a>{" "}
-                during school hours and we&apos;ll reset it for you.
+                during school hours and we&apos;ll help.
               </Faq>
-              <Faq question="My child's admission number isn't working.">
-                Double-check the number against the receipt issued at the start
-                of the term. If it still doesn&apos;t work, get in touch and we&apos;ll
-                check the records.
+              <Faq question="My child's Student ID isn't working.">
+                Check for typos — the ID is letters followed by numbers. If it
+                still doesn&apos;t work, get in touch and we&apos;ll check the records.
               </Faq>
               <Faq question="I can't see this term's report yet.">
                 Reports are released on the dates announced at the start of
@@ -148,16 +154,6 @@ export default function ResultsPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Subtle hint about phase 3. Remove this section once your own
-          checker is live. */}
-      <section className="container-prose py-16">
-        <p className="mx-auto max-w-2xl text-center text-sm text-ink-subtle">
-          The result checker is currently powered by our partner. We&apos;re
-          building our own portal in-house — when it&apos;s ready, this page will
-          become the new home for it. No bookmarks to update.
-        </p>
       </section>
     </>
   );

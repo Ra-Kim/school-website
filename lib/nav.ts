@@ -4,8 +4,7 @@ import { site } from "@/content/site";
  * One config drives both desktop and mobile nav.
  *
  * Note on Result Checker: it lives at /results (an internal page that
- * currently hands off to Cloudnotte). When phase 3 ships our own
- * checker, /results becomes the actual checker — nothing else changes.
+ * hands off to the school's Schola portal).
  *
  * `site.external.resultChecker` is still imported by the /results page
  * itself; keeping this in nav lets other places (footer columns) link

@@ -17,6 +17,18 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // Branded portal link. Needs portal.ssis.com.ng added as a domain on
+        // this Vercel project; the portal itself lives on Schola.
+        source: "/:path*",
+        has: [{ type: "host", value: "portal.ssis.com.ng" }],
+        destination: "https://sharonstars.schola.ng/:path*",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

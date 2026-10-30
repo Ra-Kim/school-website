@@ -91,10 +91,10 @@ export const site = {
     facebook: "",
   },
 
-  // External services — keep this here so phase 3 can swap them out cleanly
+  // School portal on Schola. portal.ssis.com.ng redirects here too (next.config.mjs).
   external: {
-    resultChecker: "https://app.cloudnotte.com",
-    parentPortal: "https://app.cloudnotte.com",
+    resultChecker: "https://sharonstars.schola.ng/result-checker",
+    parentPortal: "https://sharonstars.schola.ng/login",
   },
 } as const;
 
