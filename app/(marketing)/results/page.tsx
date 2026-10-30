@@ -7,7 +7,7 @@ import { site } from "@/content/site";
  * /results
  *
  * The school owns this URL. It explains the result checker and sends
- * parents to the school's portal on Schola (sharonstars.schola.ng).
+ * parents to the school's portal (portal.ssis.com.ng, run on Schola).
  *
  * Why a dedicated page instead of just linking to the portal directly:
  *   - Trust signal. A page on ssis.com.ng explaining "this is where to

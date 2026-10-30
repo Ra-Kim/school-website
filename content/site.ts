@@ -91,10 +91,10 @@ export const site = {
     facebook: "",
   },
 
-  // School portal on Schola. portal.ssis.com.ng redirects here too (next.config.mjs).
+  // School portal, served by Schola on our own domain.
   external: {
-    resultChecker: "https://sharonstars.schola.ng/result-checker",
-    parentPortal: "https://sharonstars.schola.ng/login",
+    resultChecker: "https://portal.ssis.com.ng/result-checker",
+    parentPortal: "https://portal.ssis.com.ng/login",
   },
 } as const;
 
