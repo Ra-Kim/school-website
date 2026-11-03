@@ -16,6 +16,7 @@ export default async function BlogPage() {
     <>
       <PageHeader
         eyebrow="The journal"
+        crumb="Journal"
         title="Writing from the school."
         intro="Essays from staff and the head of school. Published slowly, read carefully."
       />

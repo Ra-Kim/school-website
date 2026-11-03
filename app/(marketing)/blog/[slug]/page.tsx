@@ -34,16 +34,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <>
-      <div className="container-prose pt-12">
-        <Link
-          href="/blog"
-          className="text-sm text-muted transition-colors hover:text-foreground"
-        >
-          ← All posts
-        </Link>
-      </div>
-
-      <PageHeader title={post.title} />
+      <PageHeader title={post.title} crumb={post.title} parent={{ label: "Journal", href: "/blog" }} />
 
       <article className="container-prose pb-24">
         <p className="mb-12 text-xs uppercase tracking-eyebrow text-ink-subtle">

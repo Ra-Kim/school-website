@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHeader } from "@/components/marketing/page-header";
-import { getEvents, type SchoolEvent } from "@/content/events";
+import { getEvents, getPastEvents, type SchoolEvent } from "@/content/events";
 import { formatEventDate, formatEventTime } from "@/lib/dates";
 
 export const metadata: Metadata = {
@@ -12,12 +12,13 @@ export const metadata: Metadata = {
 };
 
 export default async function EventsPage() {
-  const events = await getEvents();
+  const [events, pastEvents] = await Promise.all([getEvents(), getPastEvents()]);
 
   return (
     <>
       <PageHeader
         eyebrow="What's on"
+        crumb="Events"
         title="Events at the school."
         intro="Open to current parents, prospective families, alumni, and the wider community."
       />
@@ -25,7 +26,7 @@ export default async function EventsPage() {
       <section className="container-prose pb-24 lg:pb-32">
         {events.length === 0 ? (
           <p className="text-base text-muted">
-            No events scheduled at the moment. Please check back soon.
+            No upcoming events scheduled at the moment. Please check back soon.
           </p>
         ) : (
           <ul className="divide-y divide-ink-line border-y border-ink-line">
@@ -35,6 +36,17 @@ export default async function EventsPage() {
           </ul>
         )}
       </section>
+
+      {pastEvents.length > 0 && (
+        <section className="container-prose pb-24 lg:pb-32">
+          <p className="eyebrow mb-6">Recent events</p>
+          <ul className="divide-y divide-ink-line border-y border-ink-line opacity-80">
+            {pastEvents.map((event) => (
+              <EventRow key={event.slug} event={event} />
+            ))}
+          </ul>
+        </section>
+      )}
     </>
   );
 }

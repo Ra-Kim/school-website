@@ -66,6 +66,9 @@ export const site = {
   contact: {
     email: "info@ssis.com.ng",
     phone: "+234 8035418644",
+    // International format, digits only — used for wa.me links.
+    // Must be a number that actually has WhatsApp on it.
+    whatsapp: "2348035418644",
     address: "No. 8 Deeper Life Close, off Sars Link Road, Rumuagholu, Port Harcourt",
     addressLocality: "Port Harcourt",
     addressRegion: "Rivers State",
@@ -85,6 +88,27 @@ export const site = {
     "Sars Link Road",
     "Port Harcourt",
   ],
+
+  // "Documents to have ready" checklist on /admissions. The section is
+  // hidden while empty — fill with the school's actual requirements,
+  // e.g. "Two passport photographs", "Birth certificate".
+  admissionDocuments: [] as ReadonlyArray<string>,
+
+  // Shown on /testimonials. Only add real quotes from people who agreed
+  // (via the "Share your story" form) to be published.
+  testimonials: [] as ReadonlyArray<{
+    quote: string;
+    name: string;
+    role: string; // e.g. "Parent, Primary 4" or "Class of 2019"
+  }>,
+
+  // Shown on /careers. Empty = "no vacancies listed" message + CV email.
+  vacancies: [] as ReadonlyArray<{
+    title: string;
+    type: string; // e.g. "Full-time"
+    summary: string;
+    closes?: string; // e.g. "30 November 2026"
+  }>,
 
   social: {
     instagram: "",

@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/content/site";
-import { navItems } from "@/lib/nav";
+import { footerExplore } from "@/lib/nav";
 
 /**
  * Footer — replaces the old single-line "Designed By Mindless Arts" footer.
@@ -16,9 +17,7 @@ export function SiteFooter() {
         {/* Wordmark + contact */}
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-plum font-serif text-cream">
-              {site.shortName.charAt(0)}
-            </span>
+            <Image src="/assets/logo.png" alt="" width={40} height={40} />
             <span className="font-serif text-base tracking-wide text-foreground">
               {site.name}
             </span>
@@ -56,22 +55,30 @@ export function SiteFooter() {
             items={[
               { label: "Result Checker", href: "/results" },
               { label: "Apply", href: "/admissions" },
+              { label: "Book a visit", href: "/visit" },
               { label: "Calendar", href: "/events" },
             ]}
           />
-          <FooterColumn title="Explore" items={navItems.map((i) => i)} />
+          <FooterColumn title="Explore" items={footerExplore} />
           <FooterColumn
             title="Connect"
             items={[
-              { label: "Instagram", href: site.social.instagram, external: true },
-              { label: "Facebook", href: site.social.facebook, external: true },
+              { label: "WhatsApp", href: `https://wa.me/${site.contact.whatsapp}`, external: true },
+              // Social links only render once they're filled in content/site.ts.
+              ...(site.social.instagram
+                ? [{ label: "Instagram", href: site.social.instagram, external: true }]
+                : []),
+              ...(site.social.facebook
+                ? [{ label: "Facebook", href: site.social.facebook, external: true }]
+                : []),
+              { label: "Contact us", href: "/contact" },
             ]}
           />
         </div>
       </div>
 
       <div className="border-t border-ink-line">
-        <div className="container-prose flex flex-col items-start justify-between gap-3 py-6 text-xs text-ink-subtle sm:flex-row sm:items-center">
+        <div className="container-prose flex flex-col items-start justify-between gap-3 pb-24 pt-6 text-xs sm:pb-6 sm:pr-44 lg:pr-52 text-ink-subtle sm:flex-row sm:items-center">
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
@@ -93,12 +100,6 @@ export function SiteFooter() {
               className="transition-colors hover:text-foreground"
             >
               Privacy
-            </Link>
-            <Link
-              href="/terms"
-              className="transition-colors hover:text-foreground"
-            >
-              Terms
             </Link>
           </div>
         </div>

@@ -38,6 +38,7 @@ export default function ContactPage() {
 
         <div className="mt-12 aspect-[16/7] overflow-hidden rounded-md bg-rose-tint">
           <iframe
+            title={`Map showing ${site.name}`}
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d829.6877018523377!2d6.981624647973694!3d4.882347630629881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069d1ea3c16f349%3A0x2d31accd7329d649!2sSharon%20Stars!5e0!3m2!1sen!2sng!4v1777397148270!5m2!1sen!2sng"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -62,7 +63,7 @@ function ContactCard({
   href?: string;
 }) {
   const content = (
-    <div className="bg-cream-warm p-8 lg:p-10">
+    <div className="h-full bg-cream-warm p-8 lg:p-10">
       <p className="text-xs uppercase tracking-eyebrow text-accent">{label}</p>
       <p className="mt-3 font-serif text-xl leading-snug text-foreground">
         {value}
@@ -71,7 +72,7 @@ function ContactCard({
   );
   if (href)
     return (
-      <a href={href} className="block transition-colors hover:bg-cream">
+      <a href={href} className="group block h-full [&>div]:transition-colors [&>div]:hover:bg-cream">
         {content}
       </a>
     );

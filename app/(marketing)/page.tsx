@@ -1,4 +1,6 @@
 import { Hero } from "@/components/marketing/hero";
+import { Highlights } from "@/components/marketing/highlights";
+import { HomeFaq } from "@/components/marketing/home-faq";
 import { Welcome } from "@/components/marketing/welcome";
 import { Pillars } from "@/components/marketing/pillars";
 import { Academics } from "@/components/marketing/academics";
@@ -10,11 +12,13 @@ import { AdmissionsCTA } from "@/components/marketing/admissions-cta";
  * Homepage. Eight intentional sections, each doing one job:
  *
  *   1. Hero               — first impression + primary CTA
+ *   1b. Highlights        — four quick-scan cards linking into the site
  *   2. Welcome            — short intro, links to About
  *   3. Pillars            — three core values
  *   4. Academics          — programmes (was the "Classes" component)
  *   5. EventsPreview      — three upcoming, links to /events
  *   6. JournalPreview     — three latest posts, links to /blog
+ *   6b. HomeFaq           — common parent questions (accordion)
  *   7. AdmissionsCTA      — final conversion section
  *   (Footer comes from the (marketing) layout)
  *
@@ -27,11 +31,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Highlights />
       <Welcome />
       <Pillars />
       <Academics />
       <EventsPreview />
       <JournalPreview />
+      <HomeFaq />
       <AdmissionsCTA />
     </>
   );

@@ -50,6 +50,15 @@ export async function getEventBySlug(
   return event ? mapEvent(event) : null;
 }
 
+/** Most recent first. Used on /events so the page isn't empty between terms. */
+export async function getPastEvents(limit = 6): Promise<SchoolEvent[]> {
+  const events = await fetchAllScholaEvents({ when: "past" });
+  return events
+    .map(mapEvent)
+    .sort((a, b) => b.startsAt.localeCompare(a.startsAt))
+    .slice(0, limit);
+}
+
 export async function getUpcomingEvents(limit = 3): Promise<SchoolEvent[]> {
   const page = await fetchScholaEventsPage({ when: "upcoming", limit });
   return page.data.map(mapEvent);

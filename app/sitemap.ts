@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getEvents } from "@/content/events";
+import { getEvents, getPastEvents } from "@/content/events";
 import { getPosts } from "@/content/posts";
 
 /**
@@ -11,7 +11,12 @@ import { getPosts } from "@/content/posts";
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yourschool.edu.ng";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [events, posts] = await Promise.all([getEvents(), getPosts()]);
+  const [upcoming, past, posts] = await Promise.all([
+    getEvents(),
+    getPastEvents(100),
+    getPosts(),
+  ]);
+  const events = [...upcoming, ...past];
 
   const staticRoutes = [
     "",
@@ -21,6 +26,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/events",
     "/blog",
     "/contact",
+    "/visit",
+    "/testimonials",
+    "/alumni",
+    "/careers",
+    "/privacy",
   ].map((path) => ({
     url: `${BASE}${path}`,
     lastModified: new Date(),

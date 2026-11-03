@@ -35,16 +35,7 @@ export default async function EventPage({ params }: Props) {
 
   return (
     <>
-      <div className="container-prose pt-12">
-        <Link
-          href="/events"
-          className="text-sm text-muted transition-colors hover:text-foreground"
-        >
-          ← All events
-        </Link>
-      </div>
-
-      <PageHeader eyebrow={event.category} title={event.title} />
+      <PageHeader eyebrow={event.category} title={event.title} crumb={event.title} parent={{ label: "Events", href: "/events" }} />
 
       <section className="container-prose">
         <div className="relative aspect-[16/8] overflow-hidden rounded-md bg-rose-tint">

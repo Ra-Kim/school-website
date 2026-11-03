@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import { navItems } from "@/lib/nav";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -89,16 +89,44 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-8 lg:flex">
+          {navItems.map((item) =>
+            item.children ? (
+              // Hover or keyboard focus opens the menu; no JS needed.
+              <div key={item.href} className="group relative">
+                <Link
+                  href={item.href}
+                  aria-haspopup="true"
+                  className="flex items-center gap-1 py-2 text-sm text-muted transition-colors hover:text-foreground group-focus-within:text-foreground"
+                >
+                  {item.label}
+                  <ChevronDown aria-hidden className="h-3.5 w-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+                </Link>
+                <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <ul className="min-w-[200px] rounded-md border border-ink-line bg-surface p-2 shadow-lg shadow-plum/10">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          className="block rounded px-3 py-2 text-sm text-muted transition-colors hover:bg-cream-warm hover:text-foreground focus:bg-cream-warm focus:text-foreground focus:outline-none"
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -147,7 +175,7 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="fixed inset-0 top-20 z-30 bg-white lg:hidden"
+            className="fixed inset-0 top-20 z-30 overflow-y-auto bg-white lg:hidden"
           >
             <motion.nav
               initial={{ y: -8, opacity: 0 }}
@@ -157,14 +185,31 @@ export function SiteHeader() {
               className="container-prose flex flex-col gap-1 py-6 bg-white min-h-screen"
             >
               {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="border-b border-ink-line py-4 font-serif text-2xl text-foreground"
-                >
-                  {item.label}
-                </Link>
+                <div key={item.href} className="border-b border-ink-line py-4">
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block font-serif text-2xl text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children && (
+                    <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                      {item.children
+                        .filter((child) => child.href !== item.href)
+                        .map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setOpen(false)}
+                            className="text-sm text-muted transition-colors hover:text-accent"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                    </div>
+                  )}
+                </div>
               ))}
 
               <div className="mt-6 flex flex-col gap-3">

@@ -14,8 +14,9 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About the school"
+        crumb="About"
         title="A school built around the student, not the system."
-        intro={`Founded in ${site.established} in ${site.location}, ${site.name} has spent more than two decades preparing young people for university, for work, and for the harder parts of being human.`}
+        intro={`Founded in ${site.established} in ${site.location}, ${site.name} has spent ${new Date().getFullYear() - site.established} years preparing young people for university, for work, and for the harder parts of being human.`}
       />
 
       {/* Lead photograph */}

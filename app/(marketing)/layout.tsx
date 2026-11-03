@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/marketing/site-header";
 import { SiteFooter } from "@/components/marketing/site-footer";
+import { WhatsAppButton } from "@/components/marketing/whatsapp-button";
 import { SchoolJsonLd } from "@/components/seo/school-jsonld";
 
 /**
@@ -22,6 +23,7 @@ export default function MarketingLayout({
       <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />
+      <WhatsAppButton />
     </div>
   );
 }
