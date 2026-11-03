@@ -2,13 +2,13 @@ import { forwardRef, type InputHTMLAttributes, type TextareaHTMLAttributes, type
 import { cn } from "@/lib/cn";
 
 /**
- * Form primitives. All three share the same look: cream-warm fill,
- * subtle plum border, plum focus ring. No outlined-on-white look —
- * inputs read as part of the page surface, not floating over it.
+ * Form primitives. All three share the same look: white fill, a clearly
+ * visible plum border (stronger on hover), plum focus ring. Forms sit
+ * on cream-warm sections, so white fields stand out for easy scanning.
  */
 
 const baseField =
-  "w-full rounded-md border border-ink-line bg-cream-warm px-4 py-3 text-sm text-foreground placeholder:text-ink-subtle transition-colors focus:border-plum focus:outline-none focus:ring-2 focus:ring-plum/20";
+  "w-full rounded-md border border-plum/25 bg-surface px-4 py-3 hover:border-plum/45 text-sm text-foreground placeholder:text-ink-subtle transition-colors focus:border-plum focus:outline-none focus:ring-2 focus:ring-plum/20";
 
 type FieldWrapperProps = {
   label: string;

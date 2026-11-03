@@ -22,7 +22,16 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    // Hysteresis: collapsing the top bar shortens the page by its height
+    // (36px), which moves scrollY back. With a single threshold that
+    // flips the state again and the header bounces. Hiding after 64px and
+    // re-showing only near the top keeps the gap wider than the bar.
+    const HIDE_AFTER = 64;
+    const SHOW_BEFORE = 4;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled((prev) => (prev ? y > SHOW_BEFORE : y > HIDE_AFTER));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
