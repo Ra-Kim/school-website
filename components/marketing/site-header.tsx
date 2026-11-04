@@ -161,7 +161,7 @@ export function SiteHeader() {
           className="relative grid h-10 w-10 place-items-center lg:hidden"
         >
           <motion.span
-            animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: -4 }}
+            animate={open ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
             transition={{ type: "spring", bounce: 0.1 }}
             className="absolute h-[1.5px] w-6 rounded-full bg-plum"
           />
@@ -170,7 +170,7 @@ export function SiteHeader() {
             className="absolute h-[1.5px] w-6 rounded-full bg-plum"
           />
           <motion.span
-            animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 4 }}
+            animate={open ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
             transition={{ type: "spring", bounce: 0.1 }}
             className="absolute h-[1.5px] w-6 rounded-full bg-plum"
           />
@@ -184,14 +184,17 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="fixed inset-0 top-20 z-30 overflow-y-auto bg-white lg:hidden"
+            // The header's backdrop-blur makes it the containing block for this
+            // fixed panel, so inset-0 would size it to the header (height 0).
+            // Give it an explicit viewport-based height instead.
+            className="fixed inset-x-0 top-20 z-30 h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain bg-white lg:hidden"
           >
             <motion.nav
               initial={{ y: -8, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -8, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="container-prose flex flex-col gap-1 py-6 bg-white min-h-screen"
+              className="container-prose flex flex-col gap-1 bg-white pb-28 pt-6"
             >
               {navItems.map((item) => (
                 <div key={item.href} className="border-b border-ink-line py-4">
